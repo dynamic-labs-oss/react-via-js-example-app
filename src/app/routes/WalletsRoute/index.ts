@@ -1,0 +1,1 @@
+export { WalletsRoute } from './WalletsRoute';

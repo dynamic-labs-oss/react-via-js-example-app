@@ -1,0 +1,1 @@
+export { WalletConnectQrCodeRoute } from './WalletConnectQrCodeRoute';

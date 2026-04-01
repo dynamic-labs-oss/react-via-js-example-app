@@ -1,0 +1,1 @@
+export { RegisteredDevicesRoute } from './RegisteredDevicesRoute';

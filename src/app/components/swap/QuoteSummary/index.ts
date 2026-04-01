@@ -1,0 +1,1 @@
+export { QuoteSummary } from './QuoteSummary';

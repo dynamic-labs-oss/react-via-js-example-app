@@ -1,0 +1,1 @@
+export { CoinbaseOnrampOrderDialog } from './CoinbaseOnrampOrderDialog';

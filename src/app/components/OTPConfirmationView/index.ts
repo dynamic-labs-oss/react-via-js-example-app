@@ -1,0 +1,1 @@
+export { OTPConfirmationView } from './OTPConfirmationView';

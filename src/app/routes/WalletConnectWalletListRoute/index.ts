@@ -1,0 +1,1 @@
+export { WalletConnectWalletListRoute } from './WalletConnectWalletListRoute';

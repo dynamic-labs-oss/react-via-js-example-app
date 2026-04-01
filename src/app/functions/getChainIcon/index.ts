@@ -1,0 +1,1 @@
+export { getChainIcon } from './getChainIcon';
