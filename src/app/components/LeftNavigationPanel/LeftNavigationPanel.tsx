@@ -6,7 +6,6 @@ import {
   LogOut,
   Menu,
   PenTool,
-  Radio,
   Smartphone,
   User,
   UsersRound,
@@ -238,16 +237,6 @@ export const LeftNavigationPanel: FC = () => {
           >
             <Smartphone className="w-4 h-4" />
             Registered Devices
-          </NavigationLink>
-
-          <NavigationLink
-            navigateTo="/realtime"
-            disabled={!user}
-            data-testid="realtime-link"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            <Radio className="w-4 h-4" />
-            Realtime
           </NavigationLink>
         </nav>
 

@@ -18,11 +18,8 @@ import { addTronExtension } from '@dynamic-labs-sdk/tron';
 import { addZerodevExtension } from '@dynamic-labs-sdk/zerodev';
 import { toast } from 'sonner';
 
-import { installPhantomLogInterceptor } from '../../utils/phantomDebugLog/phantomDebugLog';
 import { demoConfig } from './demoConfig';
 import { getPreferredDeepLink } from '../components/walletConnect/getPreferredDeepLink';
-
-installPhantomLogInterceptor();
 
 // Trailing slash is stripped because the SDK's api-core constructs paths as
 // `${apiBaseUrl}/endpoint`, which would produce a double slash otherwise.
@@ -39,38 +36,11 @@ export const dynamicClient = createDynamicClient({
   },
 
   environmentId: demoConfig.environmentId,
-  logLevel: 'debug',
   metadata: {
     name: 'Dynamic',
     universalLink: window.location.origin,
   },
 });
-
-const logDebugEvent = <T extends keyof DynamicEvents>(event: T) => {
-  onEvent({
-    event,
-    listener: (...args: unknown[]) => {
-      // eslint-disable-next-line no-console
-      console.groupCollapsed(`${event}`);
-      args.forEach((arg) => {
-        // eslint-disable-next-line no-console
-        console.log(JSON.stringify(arg, null, 2));
-      });
-      // eslint-disable-next-line no-console
-      console.groupEnd();
-    },
-  });
-};
-
-logDebugEvent('userChanged');
-logDebugEvent('tokenChanged');
-logDebugEvent('walletAccountsChanged');
-logDebugEvent('initStatusChanged');
-logDebugEvent('projectSettingsChanged');
-logDebugEvent('walletProviderChanged');
-logDebugEvent('logout');
-logDebugEvent('deviceRegistrationCompleted');
-logDebugEvent('deviceRegistrationCompletedInAnotherTab');
 
 void initializeClient();
 

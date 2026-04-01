@@ -27,8 +27,6 @@ The dev server listens on [http://localhost:5200](http://localhost:5200).
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `VITE_DYNAMIC_ENVIRONMENT_ID` | Yes | Your Dynamic Environment ID |
-| `VITE_DYNAMIC_API_BASE_URL_ORIGIN` | No | API origin (default: `https://app.dynamic.xyz/`) |
-| `VITE_DYNAMIC_API_BASE_URL_PATH` | No | API path prefix (default: `api/v0/`) |
 
 See `.env.example` for copy-paste templates.
 

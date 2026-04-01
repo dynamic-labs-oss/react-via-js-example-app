@@ -23,7 +23,6 @@ import { FundingRoute } from './routes/FundingRoute';
 import { MfaRoute } from './routes/MfaRoute';
 import { NetworksRoute } from './routes/NetworksRoute';
 import { PasskeyRoute } from './routes/PasskeyRoute';
-import { RealtimeRoute } from './routes/RealtimeRoute';
 import { RegisteredDevicesRoute } from './routes/RegisteredDevicesRoute';
 import { SocialRoute } from './routes/SocialRoute';
 import { UserRoute } from './routes/UserRoute';
@@ -80,7 +79,6 @@ export const Router: FC = () => {
             path="/registered-devices"
             element={<RegisteredDevicesRoute />}
           />
-          <Route path="/realtime" element={<RealtimeRoute />} />
         </Route>
 
         <Route path="/auth" element={<AuthRoute />} />
