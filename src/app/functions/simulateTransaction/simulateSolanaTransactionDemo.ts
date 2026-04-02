@@ -21,40 +21,17 @@ export const simulateSolanaTransactionDemo = async ({
   activeNetworkData,
   includeFees,
 }: SimulateSolanaTransactionDemoParams) => {
-  // eslint-disable-next-line no-console
-  console.log('[SOLANA SIMULATION] Starting with params:', {
+  const transaction = await createSolanaTransaction({
     amount,
-    includeFees,
-    recipient,
+    isVersioned: true,
     rpcUrl: activeNetworkData.rpcUrls.http[0],
-    walletAddress: walletAccount.address,
+    solanaWalletAccount: walletAccount,
+    toAddress: recipient,
   });
 
-  try {
-    const transaction = await createSolanaTransaction({
-      amount,
-      isVersioned: true,
-      rpcUrl: activeNetworkData.rpcUrls.http[0],
-      solanaWalletAccount: walletAccount,
-      toAddress: recipient,
-    });
-
-    // eslint-disable-next-line no-console
-    console.log('[SOLANA SIMULATION] Transaction created successfully');
-
-    const result = await simulateSolanaTransaction({
-      includeFees,
-      transaction,
-      walletAccount,
-    });
-
-    // eslint-disable-next-line no-console
-    console.log('[SOLANA SIMULATION] Simulation result:', result);
-
-    return result;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('[SOLANA SIMULATION] Error:', error);
-    throw error;
-  }
+  return simulateSolanaTransaction({
+    includeFees,
+    transaction,
+    walletAccount,
+  });
 };
