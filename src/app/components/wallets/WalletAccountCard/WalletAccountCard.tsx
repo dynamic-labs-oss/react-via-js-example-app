@@ -1,3 +1,4 @@
+import { isAptosWalletAccount } from '@dynamic-labs-sdk/aptos';
 import { isBitcoinWalletAccount } from '@dynamic-labs-sdk/bitcoin';
 import {
   type WalletAccount,
@@ -19,6 +20,7 @@ import { useTokenBalances } from '../../../hooks/useTokenBalances';
 import { useWalletProviderDataByKey } from '../../../hooks/useWalletProviderDataByKey';
 import { formatBalance, formatUsd } from '../../../utils/formatBalance';
 import { SwapTokenDialog } from '../../swap/SwapTokenDialog';
+import { AptosWalletActions } from '../aptos/AptosWalletActions';
 import { BitcoinWalletActions } from '../bitcoin/BitcoinWalletActions';
 import { CopyableAddress } from '../CopyableAddress';
 import { ExportPrivateKeyDialog } from '../ExportPrivateKeyDialog';
@@ -321,6 +323,10 @@ export const WalletAccountCard: FC<{ walletAccount: WalletAccount }> = ({
                 activeNetworkData={activeNetworkData}
               />
             </>
+          )}
+
+          {isAptosWalletAccount(walletAccount) && (
+            <AptosWalletActions walletAccount={walletAccount} />
           )}
 
           {isBitcoinWalletAccount(walletAccount) && (

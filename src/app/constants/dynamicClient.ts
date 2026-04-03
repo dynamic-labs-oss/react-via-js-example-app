@@ -1,3 +1,4 @@
+import { addAptosExtension } from '@dynamic-labs-sdk/aptos';
 import { addBitcoinExtension } from '@dynamic-labs-sdk/bitcoin';
 import {
   createDynamicClient,
@@ -44,6 +45,7 @@ export const dynamicClient = createDynamicClient({
 
 void initializeClient();
 
+addAptosExtension();
 addEvmExtension();
 addZerodevExtension();
 addSolanaExtension();

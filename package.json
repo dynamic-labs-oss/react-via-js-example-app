@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@bitcoinerlab/secp256k1": "1.2.0",
+    "@dynamic-labs-sdk/aptos": "0.22.1",
     "@dynamic-labs-sdk/assert-package-version": "0.22.1",
     "@dynamic-labs-sdk/bitcoin": "0.22.1",
     "@dynamic-labs-sdk/client": "0.22.1",
