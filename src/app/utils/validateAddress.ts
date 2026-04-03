@@ -38,6 +38,11 @@ const chainPatterns: Record<
     pattern: /^0x[a-fA-F0-9]{64}$/,
     placeholder: '0x...',
   },
+  TON: {
+    hint: 'Must be a valid TON address (UQ..., EQ..., kQ..., or 0Q... format)',
+    pattern: /^(UQ|EQ|kQ|0Q)[A-Za-z0-9_-]{46}$|^0:[0-9a-fA-F]{64}$/,
+    placeholder: 'UQ...',
+  },
   TRON: {
     hint: 'Must start with T followed by 33 alphanumeric characters',
     pattern: /^T[a-zA-HJ-NP-Z0-9]{33}$/,

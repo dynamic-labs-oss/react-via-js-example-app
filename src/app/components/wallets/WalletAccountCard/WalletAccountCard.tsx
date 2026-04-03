@@ -1,4 +1,5 @@
 import { isBitcoinWalletAccount } from '@dynamic-labs-sdk/bitcoin';
+import { isTonWalletAccount } from '@dynamic-labs-sdk/ton';
 import {
   type WalletAccount,
   isHardwareWalletAccount,
@@ -27,6 +28,7 @@ import { SendTransactionDialog } from '../SendTransactionDialog';
 import { SignMessageDialog } from '../SignMessageDialog';
 import { SimulateTransactionDialog } from '../SimulateTransactionDialog';
 import { SolanaWalletActions } from '../solana/SolanaWalletActions';
+import { TonWalletActions } from '../ton/TonWalletActions';
 import { WaasDelegationDialog } from '../WaasDelegationDialog';
 import { WaasTestDialog } from '../WaasTestDialog';
 import { WalletAddressesWithTypes } from '../WalletAddressesWithTypes';
@@ -332,6 +334,10 @@ export const WalletAccountCard: FC<{ walletAccount: WalletAccount }> = ({
               walletAccount={walletAccount}
               activeNetworkData={activeNetworkData}
             />
+          )}
+
+          {isTonWalletAccount(walletAccount) && (
+            <TonWalletActions walletAccount={walletAccount} />
           )}
 
           {isWaasAccount && (
