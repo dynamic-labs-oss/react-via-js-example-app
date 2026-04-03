@@ -15,6 +15,7 @@ const CHAIN_LABELS: Record<string, string> = {
   SOL: 'Solana',
   STARK: 'Starknet',
   SUI: 'Sui',
+  TON: 'TON',
   TRON: 'Tron',
 };
 

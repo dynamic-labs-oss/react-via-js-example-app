@@ -14,6 +14,7 @@ import {
 } from '@dynamic-labs-sdk/solana';
 import { addWalletConnectSolanaExtension } from '@dynamic-labs-sdk/solana/wallet-connect';
 import { addSuiExtension } from '@dynamic-labs-sdk/sui';
+import { addTonExtension } from '@dynamic-labs-sdk/ton';
 import { addTronExtension } from '@dynamic-labs-sdk/tron';
 import { addZerodevExtension } from '@dynamic-labs-sdk/zerodev';
 import { toast } from 'sonner';
@@ -49,6 +50,7 @@ addZerodevExtension();
 addSolanaExtension();
 addBitcoinExtension();
 addSuiExtension();
+addTonExtension();
 addTronExtension();
 void addWalletConnectEvmExtension();
 void addPhantomRedirectSolanaExtension({
