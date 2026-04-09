@@ -76,12 +76,9 @@ export const WalletList: FC<WalletListProps> = ({
             iconSrc={walletProviders[0].metadata.icon}
             displayName={walletProviders[0].metadata.displayName}
             onClick={() => onWalletProviderClick(groupKey)}
-            chainIcons={walletProviders.map((walletProvider) => {
+            chainIcons={walletProviders.flatMap((walletProvider) => {
               const Icon = getChainIcon(walletProvider.chain);
-              return {
-                component: Icon,
-                key: walletProvider.key,
-              };
+              return Icon ? [{ component: Icon, key: walletProvider.key }] : [];
             })}
           />
         ))}

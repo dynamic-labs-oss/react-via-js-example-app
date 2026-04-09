@@ -1,4 +1,5 @@
 import { createWaasWalletAccounts } from '@dynamic-labs-sdk/client/waas';
+import type { Chain } from '@dynamic-labs-sdk/client';
 import type { FC } from 'react';
 import { useCallback, useState } from 'react';
 import { toast } from 'sonner';
@@ -26,10 +27,10 @@ const SUPPORTED_CHAINS = [
 export const CreateWaasWalletDialog: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [password, setPassword] = useState('');
-  const [selectedChains, setSelectedChains] = useState<string[]>([]);
+  const [selectedChains, setSelectedChains] = useState<Chain[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleToggleChain = useCallback((chain: string) => {
+  const handleToggleChain = useCallback((chain: Chain) => {
     setSelectedChains((prev) =>
       prev.includes(chain) ? prev.filter((c) => c !== chain) : [...prev, chain]
     );

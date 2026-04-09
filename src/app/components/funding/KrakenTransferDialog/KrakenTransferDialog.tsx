@@ -83,7 +83,7 @@ export const KrakenTransferDialog: FC = () => {
                 </p>
                 <p>
                   <span className="text-muted-foreground">Created:</span>{' '}
-                  {new Date(krakenTransfer.createdAt).toLocaleString()}
+                  {krakenTransfer.createdAt ? new Date(krakenTransfer.createdAt).toLocaleString() : '—'}
                 </p>
               </div>
             </div>
