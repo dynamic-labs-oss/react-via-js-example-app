@@ -1,6 +1,6 @@
 # Dynamic JavaScript SDK — React reference app
 
-Reference implementation for integrating the [Dynamic](https://www.dynamic.xyz/) JavaScript SDK (`@dynamic-labs-sdk/*`) in a React app: authentication, multi-chain wallets, WalletConnect, and related UI patterns.
+Reference implementation for integrating the [Dynamic](https://www.dynamic.xyz/) JavaScript SDK (`@dynamic-labs-sdk/*`) in a React app: authentication, multi-chain wallets, WalletConnect, checkout, and related UI patterns.
 
 ## Requirements
 
@@ -38,6 +38,12 @@ See `.env.example` for copy-paste templates.
 | `npm run build` | Production build to `dist/` |
 | `npm run preview` | Serve the production build locally |
 | `npm run lint` | Run ESLint |
+
+## Checkout
+
+The **Checkout** route (`/checkout`) demonstrates the full on-chain payment flow: create a transaction, select a source token, review the quote, submit, and poll for settlement status.
+
+To use it, navigate to **Checkout** in the sidebar after signing in and enter your **Checkout ID** in the form. The ID is saved to `localStorage` so you only need to enter it once. Checkout IDs are created in the [Dynamic dashboard](https://app.dynamic.xyz/).
 
 ## Documentation
 

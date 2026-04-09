@@ -20,7 +20,7 @@
     "@dynamic-labs-sdk/evm": "0.22.1",
     "@dynamic-labs-sdk/solana": "0.22.1",
     "@dynamic-labs-sdk/sui": "0.22.1",
-    "@dynamic-labs-sdk/ton": "0.22.1",
+    "@dynamic-labs-sdk/ton": "^0.22.1",
     "@dynamic-labs-sdk/tron": "0.22.1",
     "@dynamic-labs-sdk/wallet-connect": "0.22.1",
     "@dynamic-labs-sdk/zerodev": "0.22.1",
