@@ -15,7 +15,7 @@ import {
   TronIcon,
 } from '@dynamic-labs/iconic';
 
-const chainIconMap: Record<Chain, Iconic> = {
+const chainIconMap: Partial<Record<Chain, Iconic>> = {
   ALGO: AlgorandIcon,
   APTOS: AptosIcon,
   BTC: BitcoinIcon,

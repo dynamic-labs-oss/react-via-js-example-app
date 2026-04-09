@@ -1,3 +1,1 @@
-import { useClientState } from './useClientState';
-
-export const useInitStatus = () => useClientState('initStatusChanged', (client) => client.initStatus);
+export { useInitStatus } from '@dynamic-labs-sdk/react-hooks';

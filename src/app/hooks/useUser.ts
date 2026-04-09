@@ -1,3 +1,1 @@
-import { useClientState } from './useClientState';
-
-export const useUser = () => useClientState('userChanged', (client) => client.user);
+export { useUser } from '@dynamic-labs-sdk/react-hooks';
