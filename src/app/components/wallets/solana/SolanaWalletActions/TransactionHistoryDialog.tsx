@@ -1,4 +1,5 @@
 import {
+  type GetTransactionHistoryResponse,
   type NetworkData,
   getTransactionHistory,
 } from '@dynamic-labs-sdk/client';
@@ -121,7 +122,7 @@ export const TransactionHistoryDialog: FC<TransactionHistoryDialogProps> = ({
     );
   };
 
-  const groupTransactionsByDate = (transactions: typeof transactionData extends { transactions: infer T } ? T : never) => {
+  const groupTransactionsByDate = (transactions: GetTransactionHistoryResponse['transactions']) => {
     const groups: Record<string, typeof transactions> = {};
 
     for (const tx of transactions) {

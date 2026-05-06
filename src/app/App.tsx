@@ -1,8 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { DynamicProvider } from '@dynamic-labs-sdk/react-hooks';
 import type { FC } from 'react';
 
 import { Toaster } from '../components/ui/sonner';
 import { Captcha } from './components/Captcha';
+import { dynamicClient } from './constants/dynamicClient';
 import { Router } from './Router';
 
 const queryClient = new QueryClient({
@@ -16,12 +18,14 @@ const queryClient = new QueryClient({
 
 export const App: FC = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router />
+    <DynamicProvider client={dynamicClient}>
+      <QueryClientProvider client={queryClient}>
+        <Router />
 
-      <Captcha />
+        <Captcha />
 
-      <Toaster />
-    </QueryClientProvider>
+        <Toaster />
+      </QueryClientProvider>
+    </DynamicProvider>
   );
 };

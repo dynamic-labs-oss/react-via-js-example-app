@@ -203,12 +203,10 @@ export const WalletConnectWalletList: FC<WalletConnectWalletListProps> = ({
               onClick={() => onWalletClick(wallet)}
               loading={isConnectingThisWallet}
               disabled={isConnecting}
-              chainIcons={[
-                {
-                  component: getChainIcon(wallet.chain),
-                  key: wallet.chain,
-                },
-              ]}
+              chainIcons={[wallet.chain].flatMap((chain) => {
+                const Icon = getChainIcon(chain);
+                return Icon ? [{ component: Icon, key: chain }] : [];
+              })}
             />
           );
         })}
@@ -247,12 +245,9 @@ export const WalletConnectWalletList: FC<WalletConnectWalletListProps> = ({
               disabled={isConnecting}
               chainIcons={filterDuplicates(
                 wallets.map((wallet) => wallet.chain)
-              ).map((chain) => {
+              ).flatMap((chain) => {
                 const Icon = getChainIcon(chain);
-                return {
-                  component: Icon,
-                  key: chain,
-                };
+                return Icon ? [{ component: Icon, key: chain }] : [];
               })}
             />
           );

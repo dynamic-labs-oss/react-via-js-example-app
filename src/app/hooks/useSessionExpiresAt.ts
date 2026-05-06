@@ -1,4 +1,1 @@
-import { useClientState } from './useClientState';
-
-export const useSessionExpiresAt = () =>
-  useClientState('userChanged', (client) => client.sessionExpiresAt);
+export { useSessionExpiresAt } from '@dynamic-labs-sdk/react-hooks';
