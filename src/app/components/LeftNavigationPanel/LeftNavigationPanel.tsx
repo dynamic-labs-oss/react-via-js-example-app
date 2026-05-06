@@ -6,6 +6,7 @@ import {
   LogOut,
   Menu,
   PenTool,
+  ShoppingCart,
   Smartphone,
   User,
   UsersRound,
@@ -217,6 +218,16 @@ export const LeftNavigationPanel: FC = () => {
           >
             <CreditCard className="w-4 h-4" />
             Funding
+          </NavigationLink>
+
+          <NavigationLink
+            navigateTo="/checkout"
+            disabled={!user}
+            data-testid="checkout-link"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <ShoppingCart className="w-4 h-4" />
+            Checkout
           </NavigationLink>
 
           <NavigationLink
