@@ -1,6 +1,6 @@
 import {
   type SocialAccount,
-  authenticateWithSocial,
+  signInWithSocialRedirect,
   unlinkSocialAccount,
 } from '@dynamic-labs-sdk/client';
 import { CheckCircle2, Info } from 'lucide-react';
@@ -31,7 +31,7 @@ export const ExchangeAccountCard = ({
   const handleConnect = async () => {
     setIsConnecting(true);
     try {
-      await authenticateWithSocial({
+      await signInWithSocialRedirect({
         provider: providerDetails.key,
         redirectUrl: window.location.href,
       });

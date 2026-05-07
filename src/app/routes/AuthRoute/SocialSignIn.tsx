@@ -1,5 +1,5 @@
 import type { SocialProvider } from '@dynamic-labs-sdk/client';
-import { authenticateWithSocial } from '@dynamic-labs-sdk/client';
+import { signInWithSocialRedirect } from '@dynamic-labs-sdk/client';
 import { type FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ export const SocialSignIn: FC = () => {
   const handleSocialSignIn = useCallback(async (provider: SocialProvider) => {
     await promptCaptchaIfRequired();
 
-    await authenticateWithSocial({
+    await signInWithSocialRedirect({
       provider,
       redirectUrl: window.location.href,
     });
