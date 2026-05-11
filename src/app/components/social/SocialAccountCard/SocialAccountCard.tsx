@@ -1,6 +1,6 @@
 import {
   type SocialAccount,
-  authenticateWithSocial,
+  signInWithSocialRedirect,
   unlinkSocialAccount,
 } from '@dynamic-labs-sdk/client';
 import { UserCircle2 } from 'lucide-react';
@@ -64,7 +64,7 @@ export const SocialAccountCard = ({
             className="rounded-full h-7 px-3 text-xs font-medium"
             disabled={isLoading}
             onClick={() =>
-              void authenticateWithSocial({
+              void signInWithSocialRedirect({
                 provider: providerDetails.key,
                 redirectUrl: window.location.href,
               })

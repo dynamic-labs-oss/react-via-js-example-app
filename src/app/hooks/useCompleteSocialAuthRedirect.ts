@@ -1,6 +1,6 @@
 import {
-  completeSocialAuthentication,
-  detectOAuthRedirect,
+  completeSocialRedirect,
+  detectSocialRedirectUrl,
 } from '@dynamic-labs-sdk/client';
 import { useQuery } from '@tanstack/react-query';
 
@@ -13,7 +13,7 @@ export const useCompleteSocialAuthRedirect = ({
 }: UseCompleteSocialAuthRedirectParams = {}) => {
   return useQuery({
     queryFn: async () => {
-      const isReturning = await detectOAuthRedirect({
+      const isReturning = await detectSocialRedirectUrl({
         url: new URL(window.location.href),
       });
 
@@ -21,7 +21,7 @@ export const useCompleteSocialAuthRedirect = ({
         return false;
       }
 
-      await completeSocialAuthentication({
+      await completeSocialRedirect({
         url: new URL(window.location.href),
       });
 
