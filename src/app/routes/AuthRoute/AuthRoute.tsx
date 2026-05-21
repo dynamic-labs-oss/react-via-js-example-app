@@ -7,16 +7,18 @@ import {
   verifyOTP,
   verifyWalletAccount,
 } from '@dynamic-labs-sdk/client';
+import { Wallet } from 'lucide-react';
 import { type FC, useCallback, useMemo, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
+import { Button } from '@/components/ui/button';
 import { promptCaptchaIfRequired } from '../../../store/captcha';
 import { isLedgerMode, useLedgerMode } from '../../../store/ledgerMode';
-import { AutoVerifyWalletsSwitch } from '../../components/AutoVerifyWalletsSwitch';
-import { ErrorMessage } from '../../components/ErrorMessage';
-import { LedgerModeSwitch } from '../../components/LedgerModeSwitch';
 import { ModalLayout } from '../../components/ModalLayout/ModalLayout';
 import { OTPConfirmationView } from '../../components/OTPConfirmationView';
+import { BrandedWalletConnectQrCode } from '../../components/walletConnect/BrandedWalletConnectQrCode';
+import type { CombinedCatalogGroup } from '../../components/walletPicker/CombinedWalletList.types';
+import { WalletPickerView } from '../../components/walletPicker/WalletPickerView';
 import { WalletNeedsVerifyView } from '../../components/WalletNeedsVerifyView/WalletNeedsVerifyView';
 import { connectWalletWithAutoVerify } from '../../functions/connectWalletWithAutoVerify/connectWalletWithAutoVerify';
 import { onSignIn } from '../../functions/onSignIn/onSignIn';
@@ -27,7 +29,6 @@ import { PasskeySignIn } from './PasskeySignIn';
 import { SendOTPFormSection } from './SendOTPFormSection';
 import { SocialSignIn } from './SocialSignIn';
 import { WalletConnectSignIn } from './WalletConnectSignIn';
-import { WalletList } from './WalletList';
 
 const OrDivider: FC<{ text?: string }> = ({ text = 'or' }) => (
   <div className="flex items-center gap-3">
@@ -40,7 +41,6 @@ const OrDivider: FC<{ text?: string }> = ({ text = 'or' }) => (
 );
 
 export const AuthRoute: FC = () => {
-  const navigate = useNavigate();
   const user = useUser();
   const allWalletProviders = useWalletProviders();
   const ledgerMode = useLedgerMode();
@@ -78,6 +78,10 @@ export const AuthRoute: FC = () => {
 
   const [walletSignInError, setWalletSignInError] = useState<unknown>(null);
   const [isVerifying, setIsVerifying] = useState(false);
+  const [qrCodeGroup, setQrCodeGroup] = useState<CombinedCatalogGroup | null>(
+    null
+  );
+  const [isWalletListOpen, setIsWalletListOpen] = useState(false);
 
   const walletSignIn = useCallback(
     async (walletProvider: WalletProviderData) => {
@@ -108,7 +112,6 @@ export const AuthRoute: FC = () => {
         await onSignIn();
         setAuthState(null);
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error(error);
         setWalletSignInError(error);
         setAuthState(null);
@@ -127,7 +130,6 @@ export const AuthRoute: FC = () => {
       await verifyWalletAccount({ walletAccount: authState.walletAccount });
       await onSignIn();
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error(error);
       setWalletSignInError(error);
     } finally {
@@ -225,6 +227,32 @@ export const AuthRoute: FC = () => {
     );
   }
 
+  if (qrCodeGroup) {
+    return (
+      <ModalLayout title="Sign in to your account">
+        <BrandedWalletConnectQrCode
+          group={qrCodeGroup}
+          onBack={() => setQrCodeGroup(null)}
+          onConnectionComplete={() => setQrCodeGroup(null)}
+        />
+      </ModalLayout>
+    );
+  }
+
+  if (isWalletListOpen) {
+    return (
+      <ModalLayout title="Sign in to your account">
+        <WalletPickerView
+          error={walletSignInError}
+          onBack={() => setIsWalletListOpen(false)}
+          onCatalogQrRequested={setQrCodeGroup}
+          onProviderClick={walletSignIn}
+          walletProviders={walletProviders}
+        />
+      </ModalLayout>
+    );
+  }
+
   return (
     <ModalLayout title="Sign in to your account">
       {/* Email / Phone OTP */}
@@ -243,21 +271,18 @@ export const AuthRoute: FC = () => {
         <WalletConnectSignIn />
       </div>
 
-      <OrDivider text="or connect a wallet" />
+      <OrDivider text="or" />
 
-      {/* Wallets */}
-      <div className="flex flex-col gap-3">
-        <AutoVerifyWalletsSwitch />
-        <LedgerModeSwitch />
-        <ErrorMessage error={walletSignInError} />
-        <WalletList
-          walletProviders={walletProviders}
-          onClick={walletSignIn}
-          onMultiChainProviderClick={(providerKey) =>
-            navigate(`/auth/${providerKey}`)
-          }
-        />
-      </div>
+      <Button
+        className="w-full h-11"
+        data-testid="open-wallet-picker"
+        onClick={() => setIsWalletListOpen(true)}
+        type="button"
+        variant="outline"
+      >
+        <Wallet className="w-5! h-5!" />
+        Connect a wallet
+      </Button>
     </ModalLayout>
   );
 };

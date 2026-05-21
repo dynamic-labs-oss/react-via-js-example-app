@@ -1,0 +1,1 @@
+export { getWalletConnectConnection } from './getWalletConnectConnection';
