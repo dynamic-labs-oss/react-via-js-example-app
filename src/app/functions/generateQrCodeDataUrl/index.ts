@@ -1,0 +1,1 @@
+export { generateQrCodeDataUrl } from './generateQrCodeDataUrl';
