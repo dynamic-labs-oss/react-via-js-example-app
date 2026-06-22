@@ -1,5 +1,6 @@
 import { isDeviceRegistrationRequired, logout } from '@dynamic-labs-sdk/client';
 import {
+  ArrowLeftRight,
   CreditCard,
   Globe,
   Key,
@@ -228,6 +229,16 @@ export const LeftNavigationPanel: FC = () => {
           >
             <ShoppingCart className="w-4 h-4" />
             Checkout
+          </NavigationLink>
+
+          <NavigationLink
+            navigateTo="/flow"
+            disabled={!user}
+            data-testid="flow-link"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <ArrowLeftRight className="w-4 h-4" />
+            Flow
           </NavigationLink>
 
           <NavigationLink

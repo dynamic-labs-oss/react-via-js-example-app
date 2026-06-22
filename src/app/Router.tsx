@@ -20,6 +20,7 @@ import { AuthProviderRoute } from './routes/AuthProviderRoute';
 import { AuthRoute } from './routes/AuthRoute';
 import { CheckoutRoute } from './routes/CheckoutRoute';
 import { DeviceSigningRoute } from './routes/DeviceSigningRoute';
+import { FlowRoute } from './routes/FlowRoute';
 import { FundingRoute } from './routes/FundingRoute';
 import { MfaRoute } from './routes/MfaRoute';
 import { NetworksRoute } from './routes/NetworksRoute';
@@ -76,6 +77,7 @@ export const Router: FC = () => {
           <Route path="/passkey" element={<PasskeyRoute />} />
           <Route path="/funding" element={<FundingRoute />} />
           <Route path="/checkout" element={<CheckoutRoute />} />
+          <Route path="/flow" element={<FlowRoute />} />
           <Route path="/device-signing" element={<DeviceSigningRoute />} />
           <Route
             path="/registered-devices"
