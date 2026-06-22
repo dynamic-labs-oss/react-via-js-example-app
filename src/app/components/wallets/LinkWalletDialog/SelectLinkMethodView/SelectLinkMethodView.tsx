@@ -1,4 +1,5 @@
 import type { WalletProviderData } from '@dynamic-labs-sdk/client';
+import { useAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
 import type { FC } from 'react';
 
 import {
@@ -7,7 +8,6 @@ import {
   DialogTitle,
 } from '../../../../../components/ui/dialog';
 import { useLedgerMode } from '../../../../../store/ledgerMode';
-import { useWalletProviders } from '../../../../hooks/useWalletProviders';
 import { WalletList } from '../../../../routes/AuthRoute/WalletList';
 import { AutoVerifyWalletsSwitch } from '../../../AutoVerifyWalletsSwitch';
 import { LedgerModeSwitch } from '../../../LedgerModeSwitch';
@@ -17,7 +17,7 @@ export const SelectLinkMethodView: FC<{
   onSelect: (walletProvider: WalletProviderData) => void;
   onSelectWalletConnect: () => void;
 }> = ({ onSelect, onSelectWalletConnect }) => {
-  const allWalletProviders = useWalletProviders();
+  const allWalletProviders = useAvailableWalletProvidersData();
   const ledgerMode = useLedgerMode();
 
   const walletProviders = ledgerMode

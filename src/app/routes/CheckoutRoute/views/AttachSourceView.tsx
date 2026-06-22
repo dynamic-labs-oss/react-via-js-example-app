@@ -4,6 +4,7 @@ import {
   removeWalletAccount,
   switchActiveNetwork,
 } from '@dynamic-labs-sdk/client';
+import { useAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { type FC } from 'react';
 
@@ -11,7 +12,6 @@ import { Button } from '../../../../components/ui/button';
 import { useActiveNetworkData } from '../../../hooks/useActiveNetworkData';
 import { useNetworksData } from '../../../hooks/useNetworksData';
 import { useWalletAccounts } from '../../../hooks/useWalletAccounts';
-import { useWalletProviders } from '../../../hooks/useWalletProviders';
 import { WalletList } from '../../AuthRoute/WalletList';
 import { TokenList } from './TokenList';
 
@@ -114,7 +114,7 @@ export const AttachSourceView: FC<AttachSourceViewProps> = ({
   onTokenSelect,
   transactionAmount,
 }) => {
-  const walletProviders = useWalletProviders();
+  const walletProviders = useAvailableWalletProvidersData();
   const walletAccounts = useWalletAccounts();
   const connectedWallet = walletAccounts[0] ?? null;
 

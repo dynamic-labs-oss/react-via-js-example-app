@@ -2,6 +2,7 @@ import type { WalletAccount, WalletProviderData } from '@dynamic-labs-sdk/client
 import {
   verifyWalletAccount,
 } from '@dynamic-labs-sdk/client';
+import { useAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
 import { useMutation } from '@tanstack/react-query';
 import { type FC, useMemo, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
@@ -17,12 +18,11 @@ import { getChainIcon } from '../../functions/getChainIcon';
 import { onSignIn } from '../../functions/onSignIn/onSignIn';
 import { useUser } from '../../hooks/useUser';
 import { useWalletAccounts } from '../../hooks/useWalletAccounts';
-import { useWalletProviders } from '../../hooks/useWalletProviders';
 
 export const AuthProviderRoute: FC = () => {
   const { walletProviderKey } = useParams<{ walletProviderKey: string }>();
   const user = useUser();
-  const walletProviders = useWalletProviders();
+  const walletProviders = useAvailableWalletProvidersData();
   const [selectedWalletProvider, setSelectedWalletProvider] =
     useState<WalletProviderData>();
   const walletAccounts = useWalletAccounts();
