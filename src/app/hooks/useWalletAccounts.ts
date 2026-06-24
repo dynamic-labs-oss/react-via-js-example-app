@@ -1,1 +1,1 @@
-export { useWalletAccounts } from '@dynamic-labs-sdk/react-hooks';
+export { useGetWalletAccounts as useWalletAccounts } from '@dynamic-labs-sdk/react-hooks';

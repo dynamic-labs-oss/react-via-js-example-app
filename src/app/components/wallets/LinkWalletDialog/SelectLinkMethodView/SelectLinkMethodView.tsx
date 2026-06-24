@@ -1,5 +1,5 @@
 import type { WalletProviderData } from '@dynamic-labs-sdk/client';
-import { useAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
+import { useGetAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
 import type { FC } from 'react';
 
 import {
@@ -17,7 +17,7 @@ export const SelectLinkMethodView: FC<{
   onSelect: (walletProvider: WalletProviderData) => void;
   onSelectWalletConnect: () => void;
 }> = ({ onSelect, onSelectWalletConnect }) => {
-  const allWalletProviders = useAvailableWalletProvidersData();
+  const allWalletProviders = useGetAvailableWalletProvidersData();
   const ledgerMode = useLedgerMode();
 
   const walletProviders = ledgerMode

@@ -1,1 +1,1 @@
-export { useEvent as useClientEvent } from '@dynamic-labs-sdk/react-hooks';
+export { useOnEvent as useClientEvent } from '@dynamic-labs-sdk/react-hooks';

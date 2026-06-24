@@ -1,3 +1,3 @@
-import { useUserSocialAccounts } from '@dynamic-labs-sdk/react-hooks';
+import { useGetUserSocialAccounts } from '@dynamic-labs-sdk/react-hooks';
 
-export const useSocialAccounts = () => useUserSocialAccounts().data ?? [];
+export const useSocialAccounts = () => useGetUserSocialAccounts().data ?? [];

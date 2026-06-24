@@ -7,7 +7,7 @@ import {
   verifyOTP,
   verifyWalletAccount,
 } from '@dynamic-labs-sdk/client';
-import { useAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
+import { useGetAvailableWalletProvidersData } from '@dynamic-labs-sdk/react-hooks';
 import { Wallet } from 'lucide-react';
 import { type FC, useCallback, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
@@ -42,7 +42,7 @@ const OrDivider: FC<{ text?: string }> = ({ text = 'or' }) => (
 
 export const AuthRoute: FC = () => {
   const user = useUser();
-  const allWalletProviders = useAvailableWalletProvidersData();
+  const allWalletProviders = useGetAvailableWalletProvidersData();
   const ledgerMode = useLedgerMode();
   const walletAccounts = useWalletAccounts();
 
