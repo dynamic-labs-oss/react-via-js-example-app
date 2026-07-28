@@ -8,6 +8,7 @@ import {
   verifyWalletAccount,
 } from '@dynamic-labs-sdk/client';
 import { isWaasWalletAccount } from '@dynamic-labs-sdk/client/waas';
+import { isEvmWalletAccount } from '@dynamic-labs-sdk/evm';
 import { isSolanaWalletAccount } from '@dynamic-labs-sdk/solana';
 import { useMutation } from '@tanstack/react-query';
 import { AlertCircle, ChevronDown, RefreshCw, Trash2 } from 'lucide-react';
@@ -23,6 +24,8 @@ import { SwapTokenDialog } from '../../swap/SwapTokenDialog';
 import { BitcoinWalletActions } from '../bitcoin/BitcoinWalletActions';
 import { CopyableAddress } from '../CopyableAddress';
 import { ExportPrivateKeyDialog } from '../ExportPrivateKeyDialog';
+import { EvmWalletActions } from '../evm/EvmWalletActions';
+import { GoogleDriveBackupReadinessDialog } from '../GoogleDriveBackupReadinessDialog';
 import { NetworkSwitcher } from '../NetworkSwitcher';
 import { SendTransactionDialog } from '../SendTransactionDialog';
 import { SignMessageDialog } from '../SignMessageDialog';
@@ -340,10 +343,17 @@ export const WalletAccountCard: FC<{ walletAccount: WalletAccount }> = ({
             <TonWalletActions walletAccount={walletAccount} />
           )}
 
+          {isEvmWalletAccount(walletAccount) && (
+            <EvmWalletActions walletAccount={walletAccount} />
+          )}
+
           {isWaasAccount && (
             <>
               <ExportPrivateKeyDialog walletAccount={walletAccount} />
               <WaasDelegationDialog walletAccount={walletAccount} />
+              <GoogleDriveBackupReadinessDialog
+                walletAccount={walletAccount}
+              />
               <WaasTestDialog walletAccount={walletAccount} />
             </>
           )}
