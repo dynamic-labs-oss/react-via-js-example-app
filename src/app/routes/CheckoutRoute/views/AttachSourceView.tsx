@@ -114,7 +114,7 @@ export const AttachSourceView: FC<AttachSourceViewProps> = ({
   onTokenSelect,
   transactionAmount,
 }) => {
-  const walletProviders = useGetAvailableWalletProvidersData();
+  const walletProviders = useGetAvailableWalletProvidersData().data ?? [];
   const walletAccounts = useWalletAccounts();
   const connectedWallet = walletAccounts[0] ?? null;
 

@@ -1,0 +1,1 @@
+export { MoonPayDialog } from './MoonPayDialog';
