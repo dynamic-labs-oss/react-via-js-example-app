@@ -19,7 +19,6 @@ const DESTINATION_TOKENS_BY_CHAIN: Partial<
     {
       address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
       decimals: 6,
-      // eslint-disable-next-line custom-rules/ban-ethereum-eth-terms
       displayName: 'Ethereum - USDC',
       logoURI: 'https://assets.coingecko.com/coins/images/6319/small/usdc.png',
       networkId: '1',

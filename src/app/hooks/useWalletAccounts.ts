@@ -1,1 +1,3 @@
-export { useGetWalletAccounts as useWalletAccounts } from '@dynamic-labs-sdk/react-hooks';
+import { useGetWalletAccounts } from '@dynamic-labs-sdk/react-hooks';
+
+export const useWalletAccounts = () => useGetWalletAccounts().data ?? [];
