@@ -4,7 +4,7 @@ Reference implementation for integrating the [Dynamic](https://www.dynamic.xyz/)
 
 ## Requirements
 
-- Node.js **18.18+**
+- Node.js **22.23.4+, 24.22.1+, or 26.12.1+**
 - A Dynamic project and **Environment ID** from the [Dynamic dashboard](https://app.dynamic.xyz/)
 
 ## Quick start
