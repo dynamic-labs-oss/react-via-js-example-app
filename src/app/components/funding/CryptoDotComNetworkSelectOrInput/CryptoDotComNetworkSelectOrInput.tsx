@@ -1,4 +1,3 @@
-/* eslint-disable custom-rules/ban-ethereum-eth-terms */
 import type { FC } from 'react';
 
 import { SelectOrInput } from '../../SelectOrInput';

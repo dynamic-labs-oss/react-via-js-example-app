@@ -22,7 +22,7 @@ import { useWalletAccounts } from '../../hooks/useWalletAccounts';
 export const AuthProviderRoute: FC = () => {
   const { walletProviderKey } = useParams<{ walletProviderKey: string }>();
   const user = useUser();
-  const walletProviders = useGetAvailableWalletProvidersData();
+  const walletProviders = useGetAvailableWalletProvidersData().data ?? [];
   const [selectedWalletProvider, setSelectedWalletProvider] =
     useState<WalletProviderData>();
   const walletAccounts = useWalletAccounts();

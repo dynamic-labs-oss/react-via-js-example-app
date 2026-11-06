@@ -17,7 +17,7 @@ export const SelectLinkMethodView: FC<{
   onSelect: (walletProvider: WalletProviderData) => void;
   onSelectWalletConnect: () => void;
 }> = ({ onSelect, onSelectWalletConnect }) => {
-  const allWalletProviders = useGetAvailableWalletProvidersData();
+  const allWalletProviders = useGetAvailableWalletProvidersData().data ?? [];
   const ledgerMode = useLedgerMode();
 
   const walletProviders = ledgerMode

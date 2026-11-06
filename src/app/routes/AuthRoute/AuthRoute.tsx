@@ -42,7 +42,7 @@ const OrDivider: FC<{ text?: string }> = ({ text = 'or' }) => (
 
 export const AuthRoute: FC = () => {
   const user = useUser();
-  const allWalletProviders = useGetAvailableWalletProvidersData();
+  const allWalletProviders = useGetAvailableWalletProvidersData().data ?? [];
   const ledgerMode = useLedgerMode();
   const walletAccounts = useWalletAccounts();
 
