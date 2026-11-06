@@ -13,6 +13,7 @@ import { CoinbaseOnrampOrderDialog } from '../../components/funding/CoinbaseOnra
 import { CryptoDotComPaymentDialog } from '../../components/funding/CryptoDotComPaymentDialog';
 import { ExchangeAccountCard } from '../../components/funding/ExchangeAccountCard';
 import { KrakenTransferDialog } from '../../components/funding/KrakenTransferDialog';
+import { MoonPayDialog } from '../../components/funding/MoonPayDialog';
 import { KrakenIcon } from '../../components/icons/thirdParty';
 import { useCompleteSocialAuthRedirect } from '../../hooks/useCompleteSocialAuthRedirect';
 import { useSocialAccounts } from '../../hooks/useSocialAccounts';
@@ -121,6 +122,7 @@ export const FundingRoute: FC = () => {
               <CoinbaseOnrampOrderDialog />
               <CoinbaseOnrampBuyDialog />
               <CryptoDotComPaymentDialog />
+              <MoonPayDialog />
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { isDeviceRegistrationRequired, logout } from '@dynamic-labs-sdk/client';
 import {
+  Building2,
   CreditCard,
   Globe,
   Key,
@@ -248,6 +249,16 @@ export const LeftNavigationPanel: FC = () => {
           >
             <Smartphone className="w-4 h-4" />
             Registered Devices
+          </NavigationLink>
+
+          <NavigationLink
+            navigateTo="/business-accounts"
+            disabled={!user}
+            data-testid="business-accounts-link"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Building2 className="w-4 h-4" />
+            Business Accounts
           </NavigationLink>
         </nav>
 

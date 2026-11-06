@@ -18,6 +18,7 @@ import { ProtectRoute } from './components/ProtectRoute';
 import { useCompleteDeviceRegistrationRedirect } from './hooks/useCompleteDeviceRegistrationRedirect';
 import { AuthProviderRoute } from './routes/AuthProviderRoute';
 import { AuthRoute } from './routes/AuthRoute';
+import { BusinessAccountsRoute } from './routes/BusinessAccountsRoute';
 import { CheckoutRoute } from './routes/CheckoutRoute';
 import { DeviceSigningRoute } from './routes/DeviceSigningRoute';
 import { FundingRoute } from './routes/FundingRoute';
@@ -80,6 +81,10 @@ export const Router: FC = () => {
           <Route
             path="/registered-devices"
             element={<RegisteredDevicesRoute />}
+          />
+          <Route
+            path="/business-accounts"
+            element={<BusinessAccountsRoute />}
           />
         </Route>
 
